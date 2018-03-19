@@ -13,7 +13,7 @@ done
 totalReward=0;
 choice=y
 
-while [ $choice == "y" ]
+while [ $choice == "h" ]
 do
 	currentScore=0;
 	rollOne=$(( RANDOM % 6 + 1 ))
