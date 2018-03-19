@@ -1,0 +1,67 @@
+#!/bin/bash
+
+declare -a count[10]
+for i in {1..6}
+do
+	for j in {1..6}
+	do
+		(( sum=$i+$j ))
+		count[$sum]=$(( count[$sum] + 1 ))
+	done
+done
+
+totalReward=0;
+choice=y
+
+while [ $choice == "y" ]
+do
+	currentScore=0;
+	rollOne=$(( RANDOM % 6 + 1 ))
+	rollTwo=$(( RANDOM % 6 + 1 ))
+	#rollOne="3"
+	#rollTwo="1"
+	sum=$(( rollOne + rollTwo ))
+	echo "Roll one: $rollOne"
+	echo "Roll two: $rollTwo"
+
+	#currentScore=$(( $(( 10 - count[$sum] )) * 10 ))
+	#totalReward=$(( totalReward + $currentScore ))
+	
+	if (( $rollOne != $rollTwo ))
+	then
+		#currentScore=$(( $((10 - count[$sum] )) * 10 ))
+		#totalReward=$(( totalReward + $(( 10 - count[$sum] )) * 10 ))
+		#echo "You got doubles! You lose!"
+		#echo "Your total score was $totalReward"
+		#exit
+		if (( $sum == "10" ))
+		then
+			echo "You rolled a 10, you lose 100 points!"
+			totalReward=$(( totalReward - 100 ))
+		elif (( $sum == "4" ))
+		then
+			echo "You rolled a 4, you lose 50 points!"
+		#currentScore=$(( $(( 10 - count[$sum] )) * 10 ))
+		#totalReward=$(( totalReward + $currentScore ))
+			totalReward=$(( totalReward - 50 ))
+		else
+			currentScore=$(( $((10 - count[$sum] )) * 10 ))
+			totalReward=$(( totalReward + $currentScore ))
+			echo "You just rolled a(n) $sum!"
+		fi
+	else
+		echo "You got doubles, sorry, YOU LOSE!"
+		echo "Your total score was $totalReward"
+		exit
+	
+	fi
+	#currentScore=$(( $(( 10 - count[$sum] )) * 10 ))
+	#totalReward=$(( totalReward + $currentScore ))
+#echo "You just rolled $sum points!"
+echo "You scored $currentScore points!"
+echo "Your total score is $totalReward points!"
+
+echo "Would you like to keep playing? (y/n)"
+read choice
+done
+exit
