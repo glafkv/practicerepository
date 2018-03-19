@@ -1,0 +1,37 @@
+PATH=/bin:/usr/bin
+
+#Name:Gabi Appel
+#Feb. 7, 2018
+#Fizzbuzz
+
+#!/bin/bash
+
+#Ask for user input.
+read -p "Please enter a value for n:" value;
+
+if (( $((value)) == 0 ))
+then
+   echo "No value was entered, automatically 20."
+   value=20;
+fi
+
+
+#While loop
+count=1
+while [ $count -le $value ]
+do
+   if [[ $((count%3)) -eq 0 && $((count%5)) -eq 0 ]]
+   then
+      echo "Fizzbuzz"
+   elif [[ $((count%5)) -eq 0 ]]
+   then
+      echo "Buzz"
+   elif [[ $((count%3)) -eq 0 ]]
+   then
+      echo "Fizz"
+   else
+      echo "$count"
+   fi
+count=$(($count + 1))
+done
+

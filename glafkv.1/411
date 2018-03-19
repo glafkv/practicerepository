@@ -1,0 +1,19 @@
+#!/bin/bash
+#Could never wrap my head around here document, was unable to finish this one.
+
+if ! grep -i "$*"<<END
+dial-a-joke		(636) 976-3838
+dial-a-prayer		(314) 246-4200
+dial santa		(636) 976-3636
+dow jones report	(212) 976-4141
+END
+then
+read -p "No results found. Try again (1) or terminate: " input
+case $input in
+	1 ) read -p "Please enter another search: " grep_variable
+	    ./411 $grep_variable && exit;;
+	2 ) exit 0;;
+esac
+fi
+
+

@@ -1,0 +1,52 @@
+PATH=/bin:/usr/bin
+#Author: Gabi Appel
+#Feb. 8, 2018
+
+#!/bin/bash
+
+if [ $# -lt 2 ]
+then
+	case $1 in 
+		
+		''|*[0-9]*)
+			let count=0
+			while true; do
+				read -p "Booktitle: " bookTitle
+				read -p "Author(s): " authors
+				read -p "Publisher: " publisher
+				read -p "Year of Publication: " yearPublication
+				echo "$bookTitle~$authors~$publisher~$yearPublication" >> books.txt
+				echo " "
+			((count++))
+				if [ ! $count -lt $1 ]
+				then
+				break;
+				fi 
+			done  ;; 
+		"print"*) file="books.txt"
+			
+			while IFS='~' read -r w1 w2 w3 w4
+			do 
+					echo "Booktitle:		$w1" >> book_print.txt
+					echo "Author(s):		$w2" >> book_print.txt
+					echo "Publisher:		$w3" >> book_print.txt
+					echo "Year of Publication:	$w4" >> book_print.txt
+					echo " " >> book_print.txt
+			done < "$file"
+ ;;
+	esac
+ else
+	searchVal=$2
+	while IFS='~' read -r w1 w2 w3 w4
+	do
+		if [[ "$2" == *"$w1"* || "$2" == *"$w2"* || "$2" == *"$w3"* || "$2" == *"$w4"* ]]
+		then
+			 echo "Booktitle:                $w1" >> book_print.txt
+                         echo "Author(s):                $w2" >> book_print.txt
+                         echo "Publisher:                $w3" >> book_print.txt
+                         echo "Year of Publication:      $w4" >> book_print.txt
+                         echo " " >> book_print.txt
+		fi
+	done < "books.txt"
+fi
+

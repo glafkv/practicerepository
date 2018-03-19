@@ -1,0 +1,78 @@
+#!/bin/bash
+PATH=/bin:/usr/bin
+#Author: Gabi Appel
+#Date: 2-27-18
+#Dice Game
+#Purpose: The program will roll two dice, generating two random numbers between 1-6. You will get a score by rolling the dice twice. Your score will depend on the amount of times you are able to get that certain total (initialization). If you roll doubles, you lose.
+
+#Create an array of 10 elements. 
+declare -a count[10]
+
+for i in {1..6}
+do
+	for j in {1..6}
+	do
+		(( sum=$i+$j ))
+		count[$sum]=$(( count[$sum] + 1 ))
+	done
+done
+
+#Initialize totalReward to zero, and choice to y.
+totalReward=0;
+choice=y
+
+#Do these while users choice is y.
+while [ $choice == "y" ]
+do
+	#Initialize current score to zero.
+	currentScore=0;
+	
+	#Generate two random numbers.
+	rollOne=$(( RANDOM % 6 + 1 ))
+	rollTwo=$(( RANDOM % 6 + 1 ))
+	
+	#Sum the numbers for the score.
+	sum=$(( rollOne + rollTwo ))
+	
+	#Display the numbers.
+	echo "Roll one: $rollOne"
+	echo "Roll two: $rollTwo"
+
+	#If roll one does not equal roll two, do these.
+	if (( $rollOne != $rollTwo ))
+	then
+		if (( $sum == "10" ))
+		then
+			echo "You rolled a 10, you lose 100 points!"
+			totalReward=$(( totalReward - 100 ))
+		elif (( $sum == "4" ))
+		then
+			echo "You rolled a 4, you lose 50 points!"
+			totalReward=$(( totalReward - 50 ))
+		else
+			currentScore=$(( $((10 - count[$sum] )) * 10 ))
+			totalReward=$(( totalReward + currentScore ))
+			echo "You just rolled a(n) $sum!"
+		fi
+	else
+		echo "Sorry, you rolled doubles. YOU LOSE!"
+		echo "Your total score was $totalReward!"
+		exit #exit when they roll doubles.
+	fi
+#Display their current points.
+echo "You just scored $currentScore points!"
+
+#Display total points.
+echo "Your total score is $totalReward points!"
+
+#Ask user if they would like to keep playing.
+echo "Would you like to keep playing? (y/n)"
+read choice
+
+if [ $choice == "n" ]
+then
+	echo "Thanks for playing!"
+fi
+
+done
+exit

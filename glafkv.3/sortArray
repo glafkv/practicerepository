@@ -1,0 +1,35 @@
+#!/bin/bash
+PATH=/bin:/usr/bin
+#Author: Gabi Appel
+#Date: March 8, 2018
+#Sort Array
+#Purpose: Take in an array of numbers, sort them and output to different file.
+
+#read in the numbers from the file ass3_3_data_1
+IFS=$'\n' read -d '' -r -a array < ass3_3_data_1
+
+#set length of the array to the lenth of the array.
+length=${#array[@]}
+
+i=0
+#while i is less than length, increment.
+for (( i = 0; i < $length; i++ ))
+do
+	#while j is less than lenght, increment j
+	for (( j = $i; j < $length; j++ ))
+	do
+		#if an array element in i is greater than j, set to temp, switch them. 
+		if [ ${array[$i]} -gt ${array[$j]} ]
+		then
+			temp=${array[$i]}
+			array[$i]=${array[$j]}
+			array[$j]=$temp
+		fi
+	done
+done
+#display the sorted array in the file sortArray.sorted
+for (( i = 0; i < $length; i++ ))
+do
+	echo ${array[$i]}
+done > sortArray.sorted
+		

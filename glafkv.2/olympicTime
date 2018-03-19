@@ -1,0 +1,41 @@
+#!/bin/bash
+PATH=/bin:/usr/bin
+#Author: Gabi Appel
+#Date: 2-22-18
+#Olympic Time Trials
+#Purpose: The purpose of this program is to take in a name, verify it's not blank, then input five trial times. Compute the average of the times. If the average is less than 11.5 seconds, output "Welcome to the team.". If the average is more than 11.5, output "Close, but you did not make the cut.".
+
+#Ask user to input a name.
+read -p "Please enter a name: " name;
+
+#Make sure the name argument is not empty. If it is empty, print no name was entered, exit the program.
+if [[ -z "$name" ]]
+then
+	printf '%s\n' "No name was entered."
+	exit 1
+fi
+
+#Ask the user to enter trial times for the person, reads in each number.
+echo "Please enter five trial times(hit enter after every trial time): "
+read num1
+read num2
+read num3
+read num4
+read num5
+
+#Sums up the trial times, | bc is so they can be floating point numbers.
+sum=$(echo "$num1+$num2+$num3+$num4+$num5" | bc)
+#Average the sum of the numbers.
+avg=$(echo "scale=5;$sum/5" | bc)
+#Print the average.
+echo "Average time: " $avg " seconds"
+
+#If the average is less than or equal to 11.5, they made the team, if it is more than 11.5, they did not make the team.
+if (( $(echo "$avg <= 11.5" | bc -l) ))
+then
+	echo "Welcome to the team, $name!"
+else
+	echo "I'm sorry, $name , you did not make the cut."
+fi
+
+

@@ -1,0 +1,79 @@
+#!/bin/bash
+PATH=/bin:/usr/bin
+#Author: Gabi Appel
+#Date: 3/13/18
+#Purpse: User friendly version of ls -l. If the file exists, say it does. If it's a directory, say it's a directory. If its a regular file, say that, if its special, say that. Let the user know if they own the file. Let the user know if they have read/write/execution permissions on the file.
+
+#Function that does everything.
+doStuff () {
+
+#Make sure the file exists first.
+if [ -e $file ]
+then
+	echo "$file exists."
+	#Check if it is a directory, state they can search it. 
+	if [ -d $file ] 
+	then
+		echo "$file is a directory. You may search the directory if you'd like."
+	fi
+	#Check if it's a special file.
+	if [ ! -c $file ] 
+	then
+		echo "$file is a regular file."
+	else
+		echo "$file is a special file."
+	fi
+	#Check if they own the file.
+	if [ -O $file ] 
+	then
+		echo "You own $file."
+	else
+		echo "You do not own $file."
+	fi
+	#If it's a directory, they only have read and write permissions.
+	if [ -d $file ] 
+	then	
+		if [ -r $file ]
+		then
+			echo "You have read permissions on $file."
+		fi
+		if [ -w $file ]
+		then
+			echo "You have write permissions on $file."
+		fi
+	else
+	#Else, they have executable also.
+		if [ -r $file ]
+		then
+			echo "You have read permissions on $file."
+		fi
+		if [ -w $file ]
+		then
+			echo "You have write permissions on $file."
+		fi
+		if [ -x $file ]
+		then
+			echo "You have executable permissions on $file."
+		fi
+	fi
+#else the file does not exist.			
+else
+	echo "$file does not exist."
+fi
+
+}
+#If the user does not enter an argument, or they enter -h, show help message and exit program.
+if [ "$#" == 0 ] || [ "$1" == "-h" ]
+then
+	echo "After you type in the filename, be sure to include a parameter!"
+	exit 
+fi
+
+#Loop for the function. If i is one, i is less than the parameters user enters, increment.
+for (( i = 1; i <= $#; i++ ))
+do
+	#Sends it back to the function.
+	file=${!i}
+	doStuff "$file"
+done
+

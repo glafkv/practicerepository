@@ -1,0 +1,9 @@
+#!/bin/bash
+PATH=/bin:/usr/bin
+#Author: Gabi Appel
+#Date: 3-13-18
+#Purpose: print out a tree, if no parameter is specified, use current directory. If there is a specific parameter, use that one.
+
+#print in tree form.
+x=${1:-./}
+find $x -print | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/ /' -e 's/-/|/'

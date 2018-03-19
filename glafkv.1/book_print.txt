@@ -1,0 +1,10 @@
+Booktitle:                The Ultimate Hitchhiker's Guide to the Galaxy
+Author(s):                Douglas Adams
+Publisher:                Del Ray
+Year of Publication:      2002
+ 
+Booktitle:                Mastering Linux
+Author(s):                Paul S. Wang
+Publisher:                Taylor & Francis Group
+Year of Publication:      2011
+ 

@@ -1,0 +1,15 @@
+#/bin/bash
+
+hello ()
+{
+	if [ $# -eq 0 ]
+	then 
+		echo "Hello World"
+		return
+	fi
+	echo "Hello $*"
+	return
+}
+
+hello
+hello John

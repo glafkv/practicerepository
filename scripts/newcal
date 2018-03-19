@@ -1,0 +1,13 @@
+#!/bin/bash
+#newcal : Nice interface to /bin/cal
+
+case $# in 
+0) set `date`; m=$2; y=$6 ;; # no arguments; use today
+1) y=$1; set `date`; m=$2 ;; # 1 argument; use this year
+2) m=$1; y=$2 ;; # 2 arguments; month and year
+*) echo "Too many arguments to $0" ;
+   echo "Aborting ..." ;
+   exit 1 ;;
+esac
+
+

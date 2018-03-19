@@ -1,0 +1,11 @@
+#!/bin/bash
+PATH=/bin:/usr/bin
+#Author: Gabi Appel
+#Date: 2/24/18
+#Purpose: The purpose of this script is to take in a file containing information about students. If the student is a freshman or sophomore, it will put their email, first name in last name in the file cs-lower.txt, formatted like - UM EMAIL (First name Last name). If the student is a junior or senior, it will put their email, first name and last name in the file cs-upper.txt.:
+
+#Using awk. Go up to the comma for each argument. If $5 is freshman or sophomore, send the email (firstname lastname)  from emails to a file called cs-lower.
+awk -F, '$5 == "Freshman" || $5 == "Sophomore"{print $6 "\t" "("$3" "$2")" }' emails > cs-lower
+
+#Using awk. Go up to the comma for each argument. If $5 is junior or senior, send the email (firstname lastname) from emails to a file called cs-upper.
+awk -F, '$5 == "Junior" || $5 == "Senior"{print $6 "\t" "("$3" "$2")" }' emails > cs-upper

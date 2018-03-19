@@ -1,0 +1,17 @@
+PATH=/bin:/usr/bin
+#Author: Gabi Appel
+#Feb. 8, 2018
+
+#!/bin/bash
+
+if [ $# -lt 1 ]
+then
+	find . \* -printf '%s %p\n' | sort -rn
+	find . -size -1 -exec rm -i {} \;
+
+else
+	find $1 \* -printf '%s %p\n' | sort -rn
+	find $1 -size -1 -exec rm -i {} \;
+fi
+
+

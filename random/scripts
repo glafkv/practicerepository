@@ -1,0 +1,30 @@
+PATH=/bin:/usr/bin
+#!/bin/bash
+
+echo "Hello world"
+
+#declare variable
+num2=4 
+num1=5
+
+#Math requires $(())
+num3=$((num1+num2))
+
+#to display the numbers, echo $number
+echo "5 + 4 = $num3"
+
+#increment
+rand=5
+let rand+=4
+echo "$rand"
+
+echo "rand++ = $(( rand++ ))"
+
+#cat end
+cat<< END
+this text 
+prints on many
+lines
+END
+
+
