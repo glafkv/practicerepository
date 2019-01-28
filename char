@@ -1,0 +1,4 @@
+#!/bin/bash
+PATH=/bin/:usr/bin
+
+sed 's/ .*//'  

@@ -1,0 +1,19 @@
+#!/bin/bash
+
+case $d in
+[jJ]an* ) d=31 ;;
+[fF]eb* ) d=28 ;;
+[mM]ar* ) d=31 ;;
+[aA]pr* ) d=30 ;;
+[mM]ay* ) d=31 ;;
+[jJ]un* ) d=30 ;;
+[jJ]ul* ) d=31 ;;
+[aA]ug* ) d=31 ;;
+[sS]ep* ) d=30 ;;
+[oO]ct* ) d=31 ;;
+[nN]ov* ) d=30 ;;
+[dD]ec* ) d=31 ;;
+esac 
+
+ $d
+exit 

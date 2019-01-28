@@ -1,0 +1,26 @@
+#!/bin/bash
+
+echo "Please enter a month: "
+read month
+
+
+case $month in
+[jJ]an* ) month=31 ;;
+[fF]eb* ) month=28 ;;
+[mM]ar* ) month=31 ;;
+[aA]pr* ) month=30 ;;
+[mM]ay* ) month=31 ;;
+[jJ]un* ) month=30 ;;
+[jJ]ul* ) month=31 ;;
+[aA]ug* ) month=31 ;;
+[sS]ep* ) month=30 ;;
+[oO]ct* ) month=31 ;;
+[nN]ov* ) month=30 ;;
+[dD]ec* ) month=31 ;;
+*) echo "That is not a month!" ;
+   exit 1 ;;
+
+esac
+echo "$month days"
+
+exit

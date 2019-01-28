@@ -1,0 +1,25 @@
+#!/bin/bash
+
+nums()
+{
+	echo "Enter two numbers: "
+	read num1 num2
+	if [[ "$num1" -eq "$num1" && "$num2" -eq "$num2" ]] 2>/dev/null
+	then
+		if [[ "$num1" -lt "6" && "$num2" -lt "6" ]]
+		then
+			if [[ "$num1" -gt "$num2" ]]
+			then
+				echo "$num1"
+			else
+				echo "$num2"
+			fi
+		else
+			echo "Can't be more than 6 numbers."
+		fi
+	else
+		echo not a number
+	fi
+}
+
+nums $num1 $num2
