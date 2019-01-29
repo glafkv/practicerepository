@@ -1,51 +1,3 @@
-vi proj4.asm
-gcc asm.c
-a.out proj4.asm
-vi proj4.asm
-gcc asm.c
-a.out proj4.asm
-vi proj4.asm
-gcc asm.c
-a.out proj4.asm
-vi proj4.asm
-gcc asm.c
-a.out proj4.asm
-vi proj4.asm
-gcc asm.c
-a.out proj4.asm
-vi proj4.asm
-gcc asm.c
-a.out proj4.asm
-vi proj4.asm
-gcc asm.c
-a.out proj4.asm
-vi proj4.asm
-gcc asm.c
-a.out proj4.asm
-vi proj4.asm
-gcc asm.c
-a.out proj4.asm
-vi proj4.asm
-gcc asm.c
-a.out proj4.asm
-vi proj4.asm
-gcc asm.c
-a.out proj4.asm
-vi proj4.asm
-cd
-cd glafkv.4
-ls
-cat usernames
-wq
-cd
-cd assemLang
-vi proj4.asm
-gcc asm.c
-a.out proj4.asm
-vi proj4.asm
-gcc asm.c
-a.out proj4.asm
-vi proj4.asm
 gcc asm.c
 a.out proj4.asm
 vi proj4.asm
@@ -997,4 +949,52 @@ ls
 cd project
 ls
 git push origin master
+logout
+k
+git add --all
+git commit -m "Adding all"
+ls
+git push origin master
+ls
+mkdir cool
+cd cool
+ls
+git init
+vi hello
+git add hello
+git commit -m "first commit"
+git push -u origin hello
+git add --all
+git remote -v
+ssh-keygen -t rsa
+git config --global user.name "Gabi A"
+git config --global user.email glafkv@mail.umsl.edu
+git config --list
+cat ~ /.ssh/id_rsa.pub 
+cat ~ /.ssh/id_rsa.pub | ssh glafkv@delmar.umsl.edu "mkdir -p ~ /.ssh && \ cat >> ~ /.ssh/authorized_keys"
+cd
+mkdir -p ~ /git/project
+mkdir -p ~ /projectname.git
+mkdir yo
+ls
+cd ~ /projectname.git
+git init --bare
+exit
+mkdir -p ~ /git/project
+cd ~ /git/project
+git init
+exit
+k
+ls
+ssh appel@hoare.cs.umsl.edu
+logout
+k
+ls -al
+cd practic
+cd practice
+git init
+ls -al
+vi hello.txt
+git add --all
+git commit
 logout
