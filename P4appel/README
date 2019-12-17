@@ -9,33 +9,21 @@ To run:
 	make clean		- erase all executables
 
 Files that work:
-	P4_multiply.fs19
-	P4_test0G.fs19
-	P4_test10.fs19
-	P4_test1B.fs19
-	P4_test1G.fs19
-	P4_test2B.fs19
-	P4_test2G.fs19
-	P4_test3G.fs19
-	P4_test4G.fs19
-	P4_test5G.fs19
-	P4_test6G.fs19
-	P4_test7G.fs19
+	test1.fs19
+	test2.fs19
+	test3.fs19
+	//test4.fs19
+	test5.fs19
+	test6.fs19
+	test7.fs19
+	test8.fs19
 	
 Files that don't work:
-	P4_neg.fs19 (receive seg fault)
-	P4_pos.fs19 (seg fault)
-	P4_test8.fs19 (seg fault)
-	P4_test9G.fs19 (seg fault)
-	P4_big_cahuna.fs19 (seg fault)
+	test4.fs19
 
 Output files:
 	they all end in .asm
 
-Problems:
-	I got segmentation faults in my P3 that I could never figure out, so they carried on to P4, unfortunately.
-	I suspect it had something to do with the "cond" or "loop" statement because those were the files that seemed to be seg faulting and right in that area.
-	I didn't have enough time to figure it out though.
 
 
 
