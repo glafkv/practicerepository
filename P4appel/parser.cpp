@@ -75,6 +75,7 @@ node_t *block()
 			expectedToken.assign("stop");
 			parserError();
 		}
+		//return node;
 	}
 	else
 	{
@@ -240,6 +241,7 @@ node_t *R()
 			expectedToken.assign("]");
 			parserError();
 		}
+		//return node;
 		
 	}
 	else if(tk.ID == IDtk)
@@ -454,6 +456,7 @@ node_t *cond()
 			expectedToken.assign("(");
 			parserError();
 		}
+		
 	}
 	else
 	{
@@ -511,7 +514,9 @@ node_t *loop()
 			expectedToken.assign("(");
 			parserError();
 		}
+		
 	}
+	
 	else{
 		expectedToken.assign("ITERtk");
 		parserError();
@@ -543,11 +548,13 @@ node_t *assign()
 				expectedToken.assign("<");
 				parserError();
 			}
+			
 		}
 		else{
 			expectedToken.assign("<");
 			parserError();
 		}
+		
 	}
 	else{
 		expectedToken.assign("Identifier");

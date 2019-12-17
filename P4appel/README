@@ -12,15 +12,14 @@ Files that work:
 	test1.fs19
 	test2.fs19
 	test3.fs19
-	//test4.fs19
 	test5.fs19
 	test6.fs19
 	test7.fs19
 	test8.fs19
 	
 Files that don't work:
-	test4.fs19
-
+	test4.fs19	//it only print out '2' no matter what number i enter
+	
 Output files:
 	they all end in .asm
 
